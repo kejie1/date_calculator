@@ -16,6 +16,22 @@ const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
 <!doctype html>
 <html lang="en">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            is:inline
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-YD1DZB5SBP"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-YD1DZB5SBP");
+        </script>
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{title}</title>
@@ -311,37 +327,43 @@ const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
                                 <a
                                     href="/date-calculator/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Date Calculator</a>
+                                    >Date Calculator</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/business-days-calculator/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Business Days Calculator</a>
+                                    >Business Days Calculator</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/date-duration-calculator/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Date Duration Calculator</a>
+                                    >Date Duration Calculator</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/add-days-to-date/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Add Days to Date</a>
+                                    >Add Days to Date</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/subtract-days-from-date/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Subtract Days from Date</a>
+                                    >Subtract Days from Date</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/weekdays-calculator/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Weekdays Calculator</a>
+                                    >Weekdays Calculator</a
+                                >
                             </li>
                         </ul>
                     </div>
@@ -356,25 +378,29 @@ const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
                                 <a
                                     href="/about/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >About Us</a>
+                                    >About Us</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/contact/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Contact</a>
+                                    >Contact</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/privacy-policy/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Privacy Policy</a>
+                                    >Privacy Policy</a
+                                >
                             </li>
                             <li>
                                 <a
                                     href="/terms/"
                                     class="hover:text-indigo-600 transition-colors"
-                                    >Terms of Service</a>
+                                    >Terms of Service</a
+                                >
                             </li>
                         </ul>
                     </div>
