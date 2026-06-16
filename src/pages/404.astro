@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+    title="Page Not Found - Date Calculator Tools"
+    description="The page you are looking for does not exist. Return to Date Calculator Tools to calculate days, weekdays, and business days."
+>
+    <div class="mx-auto max-w-2xl px-4 py-24 text-center sm:px-6 lg:px-8">
+        <p
+            class="font-mono-custom text-sm font-semibold text-indigo-600 uppercase tracking-widest"
+        >
+            404 Error
+        </p>
+        <h1
+            class="mt-4 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl"
+        >
+            Page Not Found
+        </h1>
+        <p class="mt-6 text-base text-slate-500 leading-relaxed">
+            Sorry, we couldn't find the page you're looking for. It might have
+            been moved, or the URL might be typed incorrectly.
+        </p>
+
+        <div
+            class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
+            <a
+                href="/"
+                class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-indigo-600 px-6 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-indigo-500 active:bg-indigo-700 transition-colors"
+            >
+                Go Back Home
+            </a>
+            <a
+                href="/date-calculator/"
+                class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-slate-100 px-6 py-3.5 text-sm font-semibold text-slate-700 hover:bg-slate-200 active:bg-slate-300 transition-colors"
+            >
+                Use Date Calculator
+            </a>
+        </div>
+
+        <div class="mt-16 border-t border-slate-200 pt-8">
+            <h2
+                class="text-sm font-semibold uppercase tracking-wider text-slate-400"
+            >
+                Popular Calculators
+            </h2>
+            <div class="mt-4 grid grid-cols-2 gap-4 text-sm text-slate-600">
+                <a
+                    href="/date-calculator/"
+                    class="hover:text-indigo-600 transition-colors"
+                    >Date Calculator</a
+                >
+                <a
+                    href="/business-days-calculator/"
+                    class="hover:text-indigo-600 transition-colors"
+                    >Business Days Calculator</a
+                >
+                <a
+                    href="/date-duration-calculator/"
+                    class="hover:text-indigo-600 transition-colors"
+                    >Date Duration Calculator</a
+                >
+                <a
+                    href="/weekdays-calculator/"
+                    class="hover:text-indigo-600 transition-colors"
+                    >Weekdays Calculator</a
+                >
+            </div>
+        </div>
+    </div>
+</Layout>

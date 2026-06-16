@@ -1,0 +1,526 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout
+    title="Add Days to Date Calculator - Plan Future Dates"
+    description="Add a specific number of calendar days or business days to any start date to find the resulting target date and its weekday."
+>
+    <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <!-- Breadcrumb -->
+        <nav
+            class="flex mb-8 text-sm font-medium text-slate-500"
+            aria-label="Breadcrumb"
+        >
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="/" class="hover:text-indigo-600 transition-colors"
+                        >Home</a
+                    >
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg
+                            class="w-3 h-3 text-slate-400 mx-1"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 6 10"
+                        >
+                            <path
+                                stroke="currentColor"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="m1 9 4-4-4-4"></path>
+                        </svg>
+                        <span class="text-slate-400 ml-1 md:ml-2"
+                            >Add Days to Date</span
+                        >
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <!-- H1 Header -->
+        <div class="border-b border-slate-200 pb-5 mb-8">
+            <h1
+                class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+            >
+                Add Days to Date
+            </h1>
+            <p class="mt-2 text-base text-slate-500">
+                Calculate a future target date by adding calendar days or
+                business weekdays.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            <!-- Calculator Column -->
+            <div
+                class="lg:col-span-7 bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm"
+            >
+                <form id="calc-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label
+                                for="start-date"
+                                class="block text-sm font-bold text-slate-700 mb-2"
+                                >Start Date</label
+                            >
+                            <input
+                                type="date"
+                                id="start-date"
+                                name="start-date"
+                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="num-days"
+                                class="block text-sm font-bold text-slate-700 mb-2"
+                                >Number of Days to Add</label
+                            >
+                            <input
+                                type="number"
+                                id="num-days"
+                                name="num-days"
+                                min="0"
+                                max="999999"
+                                placeholder="e.g. 30"
+                                class="block w-full rounded-xl border border-slate-300 px-4 py-3 text-slate-900 shadow-xs focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                                required
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Configuration options -->
+                    <div
+                        class="space-y-3 bg-slate-50 p-4 rounded-xl border border-slate-100"
+                    >
+                        <span
+                            class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2"
+                            >Day Type</span
+                        >
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <label class="relative flex items-center">
+                                <input
+                                    type="radio"
+                                    name="day-type"
+                                    value="calendar"
+                                    checked
+                                    class="h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                />
+                                <span
+                                    class="ml-2 text-sm font-semibold text-slate-700"
+                                    >Calendar Days (includes weekends)</span
+                                >
+                            </label>
+                            <label class="relative flex items-center">
+                                <input
+                                    type="radio"
+                                    name="day-type"
+                                    value="weekdays"
+                                    class="h-4 w-4 border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                />
+                                <span
+                                    class="ml-2 text-sm font-semibold text-slate-700"
+                                    >Weekdays (excluding weekends)</span
+                                >
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap gap-3 pt-2">
+                        <button
+                            type="submit"
+                            class="flex-1 min-w-[120px] rounded-xl bg-indigo-600 px-5 py-3 text-center text-sm font-bold text-white shadow-xs hover:bg-indigo-500 active:bg-indigo-700 transition-colors"
+                        >
+                            Add Days
+                        </button>
+                        <button
+                            type="button"
+                            id="btn-example"
+                            class="rounded-xl border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100 active:bg-slate-200 transition-colors"
+                        >
+                            Load Example
+                        </button>
+                        <button
+                            type="button"
+                            id="btn-clear"
+                            class="rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-500 hover:text-slate-700 hover:bg-slate-50 transition-colors"
+                        >
+                            Clear
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Results Block -->
+                <div
+                    id="results-block"
+                    class="hidden mt-8 border-t border-slate-100 pt-8 space-y-6"
+                >
+                    <div class="flex items-center justify-between">
+                        <h2 class="text-lg font-bold text-slate-900">
+                            Future Date Result
+                        </h2>
+                        <button
+                            type="button"
+                            id="btn-copy"
+                            class="inline-flex items-center gap-1 text-xs font-semibold text-indigo-600 hover:text-indigo-500 border border-indigo-100 bg-indigo-50/50 hover:bg-indigo-50 px-2.5 py-1.5 rounded-lg transition-colors"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-3.5 h-3.5"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 0 1-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H5.25m11.9-3.664A2.251 2.251 0 0 0 15 2.25h-1.5a2.251 2.251 0 0 0-2.15 1.586m5.8 0c.065.21.1.433.1.664v.75h-6V4.5c0-.231.035-.454.1-.664M6.75 7.5H4.875c-.621 0-1.125.504-1.125 1.125v12c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V16.5a9 9 0 0 0-9-9Z"
+                                ></path>
+                            </svg>
+                            <span>Copy result</span>
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div
+                            class="rounded-xl bg-indigo-50/40 p-5 border border-indigo-100 sm:col-span-2"
+                        >
+                            <span
+                                class="block text-xs font-medium text-slate-500 uppercase tracking-wider"
+                                >Resulting Target Date</span
+                            >
+                            <span
+                                id="res-target-date"
+                                class="block mt-1 text-3xl font-extrabold text-indigo-600 font-mono-custom"
+                                >-</span
+                            >
+                        </div>
+
+                        <div
+                            class="rounded-xl bg-slate-50 p-4 border border-slate-100"
+                        >
+                            <span
+                                class="block text-xs font-medium text-slate-500 uppercase tracking-wider"
+                                >Weekday</span
+                            >
+                            <span
+                                id="res-target-weekday"
+                                class="block mt-1 text-xl font-bold text-slate-800"
+                                >-</span
+                            >
+                        </div>
+
+                        <div
+                            class="rounded-xl bg-slate-50 p-4 border border-slate-100"
+                        >
+                            <span
+                                class="block text-xs font-medium text-slate-500 uppercase tracking-wider"
+                                >Days Added</span
+                            >
+                            <span
+                                id="res-days-added"
+                                class="block mt-1 text-xl font-bold text-slate-800"
+                                >-</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Information Column -->
+            <div class="lg:col-span-5 space-y-8">
+                <!-- How to use -->
+                <div
+                    class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
+                >
+                    <h2 class="text-lg font-bold text-slate-900 mb-4">
+                        Adding Calendar Days vs. Weekdays
+                    </h2>
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li>
+                            <strong>Calendar Days:</strong> Simply moves forward by
+                            the exact number of days entered, regardless of whether
+                            they are weekdays or weekends.
+                        </li>
+                        <li>
+                            <strong>Weekdays (Business Days):</strong> Skips Saturdays
+                            and Sundays. For instance, adding 5 weekdays starting
+                            on Friday will advance you to the following Friday (as
+                            Saturday and Sunday are bypassed).
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Example -->
+                <div
+                    class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
+                >
+                    <h2 class="text-lg font-bold text-slate-900 mb-3">
+                        Add Days Example
+                    </h2>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        If you start on <strong>Friday, June 12, 2026</strong> and
+                        add <strong>10 days</strong>:
+                    </p>
+                    <ul
+                        class="mt-2 space-y-1 text-sm text-slate-600 list-disc list-inside"
+                    >
+                        <li>
+                            Adding 10 <strong>Calendar Days</strong>: target is
+                            Monday, June 22, 2026.
+                        </li>
+                        <li>
+                            Adding 10 <strong>Weekdays</strong>: target is
+                            Friday, June 26, 2026 (skips 4 weekend days).
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <section class="mt-16 border-t border-slate-200 pt-16">
+            <h2 class="text-2xl font-bold tracking-tight text-slate-900 mb-8">
+                Frequently Asked Questions
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">
+                        Are public holidays taken into account when adding
+                        weekdays?
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        No, our business weekday option skips standard Saturdays
+                        and Sundays only. It does not account for local,
+                        national, or industry-specific holiday closures.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">
+                        How do you compute timezone variations?
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        The calculations are done relative to the local date
+                        entered, strictly within your browser. There is no
+                        UTC-shift, ensuring the resulting date does not slip
+                        because of timezone offsets.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">
+                        Can I add negative days to go backwards?
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        For subtract calculations, we recommend using our
+                        dedicated <a
+                            href="/subtract-days-from-date/"
+                            class="text-indigo-600 font-semibold hover:underline"
+                            >Subtract Days from Date</a
+                        > tool. However, this form input enforces positive values
+                        to keep project and task calculations straightforward.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-base font-bold text-slate-900 mb-2">
+                        Is there a limit on the number of days I can add?
+                    </h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        This tool allows you to add up to 999,999 days,
+                        supporting scheduling timelines decades or centuries
+                        into the future.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Tools Link -->
+        <section
+            class="mt-16 bg-slate-50 border border-slate-200/80 rounded-2xl p-8"
+        >
+            <h2 class="text-lg font-bold text-slate-900 mb-4">
+                Related Calculators
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <a
+                    href="/subtract-days-from-date/"
+                    class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:border-indigo-100 transition-all shadow-xs"
+                >
+                    <span>Subtract Days from Date</span>
+                    <span>&rarr;</span>
+                </a>
+                <a
+                    href="/date-calculator/"
+                    class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:border-indigo-100 transition-all shadow-xs"
+                >
+                    <span>Date Calculator</span>
+                    <span>&rarr;</span>
+                </a>
+                <a
+                    href="/business-days-calculator/"
+                    class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:border-indigo-100 transition-all shadow-xs"
+                >
+                    <span>Business Days Calculator</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </section>
+    </div>
+</Layout>
+
+<script>
+    const form = document.getElementById("calc-form") as HTMLFormElement;
+    const startDateInput = document.getElementById(
+        "start-date",
+    ) as HTMLInputElement;
+    const numDaysInput = document.getElementById(
+        "num-days",
+    ) as HTMLInputElement;
+    const resultsBlock = document.getElementById(
+        "results-block",
+    ) as HTMLDivElement;
+
+    const resTargetDate = document.getElementById(
+        "res-target-date",
+    ) as HTMLSpanElement;
+    const resTargetWeekday = document.getElementById(
+        "res-target-weekday",
+    ) as HTMLSpanElement;
+    const resDaysAdded = document.getElementById(
+        "res-days-added",
+    ) as HTMLSpanElement;
+
+    const btnExample = document.getElementById(
+        "btn-example",
+    ) as HTMLButtonElement;
+    const btnClear = document.getElementById("btn-clear") as HTMLButtonElement;
+    const btnCopy = document.getElementById("btn-copy") as HTMLButtonElement;
+
+    const weekdaysList = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+    ];
+    const monthsList = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+    ];
+
+    function parseLocalDate(dateStr: string): Date {
+        const [year, month, day] = dateStr.split("-").map(Number);
+        return new Date(year, month - 1, day);
+    }
+
+    function formatDateFriendly(d: Date): string {
+        const month = monthsList[d.getMonth()];
+        const day = d.getDate();
+        const year = d.getFullYear();
+        return `${month} ${day}, ${year}`;
+    }
+
+    function calculate() {
+        if (!startDateInput.value || !numDaysInput.value) return;
+
+        const start = parseLocalDate(startDateInput.value);
+        const numDays = parseInt(numDaysInput.value, 10);
+
+        const dayType = (
+            form.querySelector(
+                'input[name="day-type"]:checked',
+            ) as HTMLInputElement
+        ).value;
+
+        const targetDate = new Date(start);
+
+        if (dayType === "calendar") {
+            targetDate.setDate(targetDate.getDate() + numDays);
+        } else {
+            // Adding weekdays (excluding Saturdays and Sundays)
+            let added = 0;
+            while (added < numDays) {
+                targetDate.setDate(targetDate.getDate() + 1);
+                const dayOfWeek = targetDate.getDay();
+                if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+                    added++;
+                }
+            }
+        }
+
+        const weekdayStr = weekdaysList[targetDate.getDay()];
+
+        resTargetDate.textContent = formatDateFriendly(targetDate);
+        resTargetWeekday.textContent = weekdayStr;
+        resDaysAdded.textContent = `${numDays.toLocaleString()} ${dayType} day${numDays !== 1 ? "s" : ""}`;
+
+        resultsBlock.classList.remove("hidden");
+    }
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        calculate();
+    });
+
+    btnExample.addEventListener("click", () => {
+        const today = new Date();
+        const formatDate = (d: Date) => {
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, "0");
+            const day = String(d.getDate()).padStart(2, "0");
+            return `${year}-${month}-${day}`;
+        };
+
+        startDateInput.value = formatDate(today);
+        numDaysInput.value = "15";
+        (
+            form.querySelector('input[value="weekdays"]') as HTMLInputElement
+        ).checked = true;
+        calculate();
+    });
+
+    btnClear.addEventListener("click", () => {
+        form.reset();
+        resultsBlock.classList.add("hidden");
+    });
+
+    btnCopy.addEventListener("click", () => {
+        const textToCopy = `Calculation Results:
+- Starting Date: ${startDateInput.value}
+- Added: ${resDaysAdded.textContent}
+- Resulting Date: ${resTargetDate.textContent}
+- Weekday: ${resTargetWeekday.textContent}`;
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const originalText = btnCopy.innerHTML;
+            btnCopy.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3.5 h-3.5 text-green-600">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+        <span class="text-green-600">Copied!</span>
+      `;
+            setTimeout(() => {
+                btnCopy.innerHTML = originalText;
+            }, 2000);
+        });
+    });
+</script>

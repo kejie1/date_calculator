@@ -1,0 +1,413 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    canonicalUrl?: string;
+}
+
+const { title, description, canonicalUrl } = Astro.props;
+const currentYear = new Date().getFullYear();
+
+// Determine canonical URL
+const siteUrl = "https://datecalculatortools.com";
+const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={finalCanonicalUrl} />
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={finalCanonicalUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={finalCanonicalUrl} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="sitemap" href="/sitemap.xml" />
+
+        <!-- Google Fonts for beautiful typography -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <style is:global>
+            :root {
+                --font-sans:
+                    "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+                --font-mono: "JetBrains Mono", monospace;
+            }
+
+            body {
+                font-family: var(--font-sans);
+                background-color: #f8fafc; /* Slate 50 */
+                color: #0f172a; /* Slate 900 */
+            }
+
+            .font-mono-custom {
+                font-family: var(--font-mono);
+            }
+        </style>
+    </head>
+    <body
+        class="min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white"
+    >
+        <!-- Header -->
+        <header
+            class="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md"
+        >
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <div class="flex h-16 items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex">
+                        <a href="/" class="flex items-center gap-2 group">
+                            <span
+                                class="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-indigo-600 to-indigo-500 text-white shadow-md shadow-indigo-200 transition-transform group-hover:scale-105"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                    ></path>
+                                </svg>
+                            </span>
+                            <span
+                                class="text-lg font-bold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors"
+                                >Date Calculator Tools</span
+                            >
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center gap-6">
+                        <div class="relative group">
+                            <button
+                                class="flex items-center gap-1 text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors py-2"
+                            >
+                                Calculators
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 20 20"
+                                    fill="currentColor"
+                                    class="w-4 h-4"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </button>
+                            <div
+                                class="absolute right-0 top-full mt-1 w-64 origin-top-right rounded-xl border border-slate-100 bg-white p-2 shadow-lg ring-1 ring-black ring-opacity-5 transition-all opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto"
+                            >
+                                <a
+                                    href="/date-calculator/"
+                                    class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition-colors"
+                                    >Date Calculator</a
+                                >
+                                <a
+                                    href="/business-days-calculator/"
+                                    class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition-colors"
+                                    >Business Days Calculator</a
+                                >
+                                <a
+                                    href="/date-duration-calculator/"
+                                    class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition-colors"
+                                    >Date Duration Calculator</a
+                                >
+                                <a
+                                    href="/add-days-to-date/"
+                                    class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition-colors"
+                                    >Add Days to Date</a
+                                >
+                                <a
+                                    href="/subtract-days-from-date/"
+                                    class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition-colors"
+                                    >Subtract Days from Date</a
+                                >
+                                <a
+                                    href="/weekdays-calculator/"
+                                    class="block rounded-lg px-3 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-indigo-600 transition-colors"
+                                    >Weekdays Calculator</a
+                                >
+                            </div>
+                        </div>
+                        <a
+                            href="/blog/"
+                            class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
+                            >Blog</a
+                        >
+                        <a
+                            href="/about/"
+                            class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
+                            >About</a
+                        >
+                        <a
+                            href="/contact/"
+                            class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
+                            >Contact</a
+                        >
+                    </nav>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="flex md:hidden">
+                        <button
+                            id="mobile-menu-btn"
+                            type="button"
+                            class="inline-flex items-center justify-center rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-900 focus:outline-none"
+                            aria-controls="mobile-menu"
+                            aria-expanded="false"
+                        >
+                            <span class="sr-only">Open main menu</span>
+                            <svg
+                                id="menu-icon-open"
+                                class="h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                                ></path>
+                            </svg>
+                            <svg
+                                id="menu-icon-close"
+                                class="hidden h-6 w-6"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M6 18 18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div
+                class="hidden md:hidden border-b border-slate-200 bg-white"
+                id="mobile-menu"
+            >
+                <div class="space-y-1 px-4 pb-4 pt-2">
+                    <div
+                        class="py-2 text-xs font-semibold uppercase tracking-wider text-slate-400"
+                    >
+                        Calculators
+                    </div>
+                    <a
+                        href="/date-calculator/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Date Calculator</a
+                    >
+                    <a
+                        href="/business-days-calculator/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Business Days Calculator</a
+                    >
+                    <a
+                        href="/date-duration-calculator/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Date Duration Calculator</a
+                    >
+                    <a
+                        href="/add-days-to-date/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Add Days to Date</a
+                    >
+                    <a
+                        href="/subtract-days-from-date/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Subtract Days from Date</a
+                    >
+                    <a
+                        href="/weekdays-calculator/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Weekdays Calculator</a
+                    >
+                    <div class="border-t border-slate-100 my-2"></div>
+                    <a
+                        href="/blog/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Blog</a
+                    >
+                    <a
+                        href="/about/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >About</a
+                    >
+                    <a
+                        href="/contact/"
+                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        >Contact</a
+                    >
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow">
+            <slot />
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-200 bg-white">
+            <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <span class="text-base font-bold text-slate-900"
+                            >Date Calculator Tools</span
+                        >
+                        <p class="mt-2 text-sm text-slate-500">
+                            A fast, clear, browser-based date calculator for
+                            counting days between dates, adding or subtracting
+                            days, and calculating weekdays or business days.
+                        </p>
+                        <p
+                            class="mt-4 text-xs font-medium text-indigo-600 bg-indigo-50/50 inline-block px-3 py-1 rounded-full border border-indigo-100/30"
+                        >
+                            ⚡ Date calculations run completely in your browser.
+                        </p>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-sm font-semibold uppercase tracking-wider text-slate-400"
+                        >
+                            Calculators
+                        </h3>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                            <li>
+                                <a
+                                    href="/date-calculator/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Date Calculator</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/business-days-calculator/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Business Days Calculator</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/date-duration-calculator/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Date Duration Calculator</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/add-days-to-date/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Add Days to Date</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/subtract-days-from-date/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Subtract Days from Date</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/weekdays-calculator/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Weekdays Calculator</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3
+                            class="text-sm font-semibold uppercase tracking-wider text-slate-400"
+                        >
+                            Legal & Support
+                        </h3>
+                        <ul class="mt-4 space-y-2 text-sm text-slate-600">
+                            <li>
+                                <a
+                                    href="/about/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >About Us</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/contact/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Contact</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/privacy-policy/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Privacy Policy</a>
+                            </li>
+                            <li>
+                                <a
+                                    href="/terms/"
+                                    class="hover:text-indigo-600 transition-colors"
+                                    >Terms of Service</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="mt-12 border-t border-slate-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+                >
+                    <p class="text-xs text-slate-400">
+                        &copy; {currentYear} Date Calculator Tools. All rights reserved.
+                    </p>
+                    <p class="text-xs text-slate-400">
+                        All tools are provided as-is, calculations run locally.
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+        <script>
+            const btn = document.getElementById("mobile-menu-btn");
+            const menu = document.getElementById("mobile-menu");
+            const openIcon = document.getElementById("menu-icon-open");
+            const closeIcon = document.getElementById("menu-icon-close");
+
+            if (btn && menu && openIcon && closeIcon) {
+                btn.addEventListener("click", () => {
+                    const expanded =
+                        btn.getAttribute("aria-expanded") === "true";
+                    btn.setAttribute("aria-expanded", String(!expanded));
+                    menu.classList.toggle("hidden");
+                    openIcon.classList.toggle("hidden");
+                    closeIcon.classList.toggle("hidden");
+                });
+            }
+        </script>
+    </body>
+</html>

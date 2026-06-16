@@ -1,0 +1,387 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const tools = [
+    {
+        title: "Date Calculator",
+        description:
+            "Calculate the exact number of days, weeks, and remaining days between two dates.",
+        href: "/date-calculator/",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>`,
+    },
+    {
+        title: "Business Days Calculator",
+        description:
+            "Find the number of working days between two dates, excluding weekends.",
+        href: "/business-days-calculator/",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 0 1 3.75 18.4V14.15m16.5 0c0-1.03-.687-1.916-1.666-2.185a48.507 48.507 0 0 0-13.168 0c-.979.269-1.666 1.156-1.666 2.185m16.5 0a2.25 2.25 0 0 1-2.247 2.25H4.875c-1.241 0-2.247-1.01-2.247-2.25m13.5-3V5.625c0-.621-.504-1.125-1.125-1.125H9.75c-.621 0-1.125.504-1.125 1.125V11.25m3.75-3h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>`,
+    },
+    {
+        title: "Date Duration Calculator",
+        description:
+            "Get detailed time duration break downs including years, months, weeks, and days.",
+        href: "/date-duration-calculator/",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
+    },
+    {
+        title: "Add Days to Date",
+        description:
+            "Add calendar days or business days to any starting date to find the target date.",
+        href: "/add-days-to-date/",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>`,
+    },
+    {
+        title: "Subtract Days from Date",
+        description:
+            "Subtract calendar days or working days from a starting date to count backwards.",
+        href: "/subtract-days-from-date/",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" /></svg>`,
+    },
+    {
+        title: "Weekdays Calculator",
+        description:
+            "Count the occurrences of specific weekdays (Mondays, Tuesdays, etc.) between dates.",
+        href: "/weekdays-calculator/",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z" /></svg>`,
+    },
+];
+
+const articles = [
+    {
+        title: "How to Calculate Days Between Dates",
+        description:
+            "A comprehensive guide to manual and automated methods for counting calendar days between any two dates.",
+        slug: "how-to-calculate-days-between-dates",
+        date: "Jun 12, 2026",
+    },
+    {
+        title: "How to Calculate Business Days Between Two Dates",
+        description:
+            "Learn how to calculate business days between two dates, excluding weekends, for project timelines and invoices.",
+        slug: "how-to-calculate-business-days",
+        date: "Jun 10, 2026",
+    },
+    {
+        title: "Business Days vs. Calendar Days: Key Differences Explained",
+        description:
+            "Understand the differences between business days and calendar days to avoid project delays and contract breaches.",
+        slug: "business-days-vs-calendar-days",
+        date: "Jun 08, 2026",
+    },
+];
+
+const faqs = [
+    {
+        q: "How are the calculations performed?",
+        a: "All date calculations are performed instantly using standard browser-side JavaScript within your browser. No dates are sent to any server, guaranteeing complete privacy and blazing fast performance.",
+    },
+    {
+        q: "Do these calculators include public holidays?",
+        a: "No, this version does not include public holidays because holiday schedules vary widely by country, state, and industry. All business day calculations assume standard Monday through Friday workweeks.",
+    },
+    {
+        q: "Is leap year accounted for?",
+        a: "Yes, our calculators fully support leap years, including the extra day in February (29 days) for leap years such as 2024, 2028, and so on.",
+    },
+    {
+        q: "Can I use these calculations for legal contracts?",
+        a: "While our tools are highly precise and thoroughly tested, they are provided as-is. For critical legal, financial, or contractual deadlines, we recommend double-checking dates manually to avoid any potential timezone or specification issues.",
+    },
+];
+---
+
+<Layout
+    title="Date Calculator Tools - Free Online Date Calculators"
+    description="Calculate days between dates, business days, weekdays, and add or subtract days online with free browser-based date tools."
+>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-20 bg-slate-900 text-white">
+        <!-- Grid overlay background -->
+        <div
+            class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-30"
+        >
+        </div>
+
+        <div
+            class="relative mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center"
+        >
+            <h1
+                class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-indigo-100 to-white"
+            >
+                Date Calculator Tools
+            </h1>
+            <p
+                class="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed"
+            >
+                A fast, clear, and browser-based date calculator suite. Count
+                days between dates, add or subtract days, and calculate weekdays
+                or business days in seconds.
+            </p>
+
+            <div
+                class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+                <a
+                    href="/date-calculator/"
+                    class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-indigo-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-indigo-500 active:bg-indigo-700 transition-all hover:-translate-y-0.5"
+                >
+                    Open Date Calculator
+                </a>
+                <a
+                    href="/business-days-calculator/"
+                    class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-slate-800 border border-slate-700 px-6 py-3.5 text-base font-semibold text-slate-200 hover:bg-slate-700 hover:text-white transition-all hover:-translate-y-0.5"
+                >
+                    Calculate Business Days
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Tools Grid -->
+    <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="text-center">
+            <h2
+                class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+            >
+                6 Core Date Calculation Tools
+            </h2>
+            <p class="mx-auto mt-4 max-w-2xl text-base text-slate-500">
+                Completely free, fast, and secure tools with zero server-side
+                storage. Select a tool below to get started.
+            </p>
+        </div>
+
+        <div class="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {
+                tools.map((tool) => (
+                    <a
+                        href={tool.href}
+                        class="relative group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm hover:shadow-md hover:border-indigo-200 transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between"
+                    >
+                        <div>
+                            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-200 shadow-sm">
+                                <Fragment set:html={tool.icon} />
+                            </div>
+                            <h3 class="mt-5 text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                                {tool.title}
+                            </h3>
+                            <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                                {tool.description}
+                            </p>
+                        </div>
+                        <div class="mt-6 flex items-center text-sm font-semibold text-indigo-600 group-hover:text-indigo-500">
+                            Open Tool
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                class="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                                />
+                            </svg>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- Use Cases / Scenarios -->
+    <section class="bg-slate-100 py-20 border-y border-slate-200/60">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h2
+                    class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+                >
+                    Designed For Modern Workflows
+                </h2>
+                <p class="mt-4 text-base text-slate-600">
+                    Whether you are tracking project schedules, managing
+                    financial payment terms, or counting down to major events,
+                    our date calculator is tailored for accuracy.
+                </p>
+            </div>
+
+            <div
+                class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
+            >
+                <div
+                    class="rounded-xl border border-slate-200 bg-white p-6 shadow-xs"
+                >
+                    <div
+                        class="font-mono-custom text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                    >
+                        01 . Deadlines
+                    </div>
+                    <h3 class="mt-3 text-base font-bold text-slate-900">
+                        Project Deadlines
+                    </h3>
+                    <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                        Easily map milestones, compute business sprints, and
+                        estimate work hours by excluding weekend days.
+                    </p>
+                </div>
+
+                <div
+                    class="rounded-xl border border-slate-200 bg-white p-6 shadow-xs"
+                >
+                    <div
+                        class="font-mono-custom text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                    >
+                        02 . Schedule
+                    </div>
+                    <h3 class="mt-3 text-base font-bold text-slate-900">
+                        Business Days
+                    </h3>
+                    <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                        Determine standard production timelines. Ideal for
+                        manufacturing, logistics, and professional services.
+                    </p>
+                </div>
+
+                <div
+                    class="rounded-xl border border-slate-200 bg-white p-6 shadow-xs"
+                >
+                    <div
+                        class="font-mono-custom text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                    >
+                        03 . Finance
+                    </div>
+                    <h3 class="mt-3 text-base font-bold text-slate-900">
+                        Payment Terms
+                    </h3>
+                    <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                        Calculate Net 15, Net 30, or Net 60 invoice due dates
+                        precisely, counting calendar days from billing.
+                    </p>
+                </div>
+
+                <div
+                    class="rounded-xl border border-slate-200 bg-white p-6 shadow-xs"
+                >
+                    <div
+                        class="font-mono-custom text-xs font-bold text-indigo-600 uppercase tracking-wider"
+                    >
+                        04 . Personal
+                    </div>
+                    <h3 class="mt-3 text-base font-bold text-slate-900">
+                        Event Countdowns
+                    </h3>
+                    <p class="mt-2 text-sm text-slate-500 leading-relaxed">
+                        Check the remaining months, weeks, or total calendar
+                        days until weddings, exams, or major travel plans.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials / Guides Preview -->
+    <section class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div
+            class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4"
+        >
+            <div>
+                <h2
+                    class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+                >
+                    Helpful Date Guides & Tutorials
+                </h2>
+                <p class="mt-4 text-base text-slate-500">
+                    Learn how to perform common date calculations manually or
+                    understand standard terminology.
+                </p>
+            </div>
+            <a
+                href="/blog/"
+                class="inline-flex items-center gap-1 text-sm font-semibold text-indigo-600 hover:text-indigo-500 shrink-0"
+            >
+                View All Blog Posts
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="w-4 h-4"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+                </svg>
+            </a>
+        </div>
+
+        <div class="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {
+                articles.map((article) => (
+                    <article class="flex flex-col justify-between rounded-xl border border-slate-200/80 p-6 bg-white shadow-xs hover:shadow-sm hover:border-indigo-100 transition-all">
+                        <div>
+                            <time
+                                datetime="2026-06-15"
+                                class="text-xs font-medium text-slate-400"
+                            >
+                                {article.date}
+                            </time>
+                            <h3 class="mt-3 text-lg font-bold text-slate-900 hover:text-indigo-600 transition-colors">
+                                <a href={`/blog/${article.slug}/`}>
+                                    {article.title}
+                                </a>
+                            </h3>
+                            <p class="mt-3 text-sm text-slate-500 leading-relaxed line-clamp-3">
+                                {article.description}
+                            </p>
+                        </div>
+                        <div class="mt-6">
+                            <a
+                                href={`/blog/${article.slug}/`}
+                                class="text-sm font-semibold text-indigo-600 hover:text-indigo-500"
+                            >
+                                Read Article &rarr;
+                            </a>
+                        </div>
+                    </article>
+                ))
+            }
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-slate-50 py-20 border-t border-slate-200/80">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2
+                    class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+                >
+                    Frequently Asked Questions
+                </h2>
+                <p class="mt-4 text-base text-slate-500">
+                    Have questions about how we count days or calculate
+                    weekdays? Here are some quick answers.
+                </p>
+            </div>
+
+            <dl class="mt-16 space-y-8 divide-y divide-slate-200">
+                {
+                    faqs.map((faq) => (
+                        <div class="pt-8 sm:grid sm:grid-cols-3 sm:gap-4">
+                            <dt class="text-base font-bold text-slate-900 sm:col-span-1">
+                                {faq.q}
+                            </dt>
+                            <dd class="mt-3 text-sm text-slate-500 sm:col-span-2 sm:mt-0 leading-relaxed">
+                                {faq.a}
+                            </dd>
+                        </div>
+                    ))
+                }
+            </dl>
+        </div>
+    </section>
+</Layout>
