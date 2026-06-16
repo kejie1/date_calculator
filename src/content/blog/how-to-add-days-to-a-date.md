@@ -9,10 +9,10 @@ relatedToolName: "Add Days to Date"
 
 # How to Add Days to a Date
 
-Planning future events, mapping deliverables, or setting contract expirations often requires you to add a specific number of days to a starting date. While simple on standard weeks, crossing month borders or handling weekend gaps requires precise counting.
+Planning future events, mapping deliverables, or setting contract expirations often requires you to add a specific number of days to a starting date. While simple on standard weeks, crossing month borders or handling weekend gaps requires precise counting. If you are scheduling classic fiscal or accounting horizons, you can see our guide on [How to Add 30, 60, or 90 Days to a Date](/blog/how-to-add-30-60-or-90-days-to-a-date/).
 
 ## Short Answer
-To add calendar days to a date, increment the calendar day value by your targeted count. If you exceed the maximum days in the current month, subtract that month's length from your count, advance the month by one, and repeat until the remainder is smaller than the next month's length. For business days, skip Saturdays and Sundays as you increment. You can automate this process instantly with our **Add Days to Date** tool.
+To add calendar days to a date, increment the calendar day value by your targeted count. If you exceed the maximum days in the current month, subtract that month's length from your count, advance the month by one, and repeat until the remainder is smaller than the next month's length. For business days, skip Saturdays and Sundays as you increment. You can automate this process instantly with our **Add Days to Date** tool. If you need to count backwards instead of forwards, we have a helpful manual on [How to Subtract Days from a Date](/blog/how-to-subtract-days-from-a-date/).
 
 ---
 

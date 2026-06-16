@@ -9,10 +9,10 @@ relatedToolName: "Date Calculator"
 
 # How to Calculate Days Between Dates
 
-Counting the days between two dates is a fundamental calculation used every day in project planning, financial calculations, legal contracts, and personal scheduling. While it sounds simple, manual calculations can quickly get complex due to varying month lengths and leap years.
+Counting the days between two dates is a fundamental calculation used every day in project planning, financial calculations, legal contracts, and personal scheduling. While it sounds simple, manual calculations can quickly get complex due to varying month lengths and leap years. If you need a slightly different counting guide, feel free to read [How to Count Days Between Two Dates](/blog/how-to-count-days-between-two-dates/).
 
 ## Short Answer
-To calculate the days between two dates, you subtract the starting date from the ending date. In manual arithmetic, you accumulate the full days of each intervening month, accounting for whether February has 28 or 29 days, and add the remaining days from the boundary months. For instant accuracy, using a browser-based tool like our **Date Calculator** is the easiest method.
+To calculate the days between two dates, you subtract the starting date from the ending date. In manual arithmetic, you accumulate the full days of each intervening month, accounting for whether February has 28 or 29 days, and add the remaining days from the boundary months. For instant accuracy, using a browser-based tool like our **Date Calculator** is the easiest method. You can also read about [Business Days vs. Calendar Days](/blog/business-days-vs-calendar-days/) to understand how working day boundaries differ.
 
 ---
 

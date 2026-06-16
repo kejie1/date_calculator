@@ -9,10 +9,10 @@ relatedToolName: "Subtract Days from Date"
 
 # How to Subtract Days from a Date
 
-Tracing dates backward is highly useful for mapping retro-active payment windows, investigating server logs, tracking contract histories, or setting up early warning task reminders. Counting days in reverse follows unique calendar logic.
+Tracing dates backward is highly useful for mapping retro-active payment windows, investigating server logs, tracking contract histories, or setting up early warning task reminders. Counting days in reverse follows unique calendar logic. If you need to plan forward-looking timelines instead, look at our companion guide on [How to Add Days to a Date](/blog/how-to-add-days-to-a-date/).
 
 ## Short Answer
-To subtract calendar days, subtract the day count directly from your start day. If you reach below 1, move backward to the preceding month, find its length, and continue subtracting your leftover pool from that month's maximum day number. For business days, skip Saturdays and Sundays as you decrement. You can automate this instantly with our **Subtract Days from Date** tool.
+To subtract calendar days, subtract the day count directly from your start day. If you reach below 1, move backward to the preceding month, find its length, and continue subtracting your leftover pool from that month's maximum day number. For business days, skip Saturdays and Sundays as you decrement. You can automate this instantly with our **Subtract Days from Date** tool. For a broader exploration of standard intervals, see our explanation of [How to Count Days Between Two Dates](/blog/how-to-count-days-between-two-dates/).
 
 ---
 

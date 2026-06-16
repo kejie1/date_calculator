@@ -9,10 +9,10 @@ relatedToolName: "Weekdays Calculator"
 
 # How Many Working Days Are in a Month?
 
-Whether you are calculating salary schedules, estimating monthly project velocity, or planning team resource allocation, knowing the exact number of working days in a month is critical. Because calendar months vary in length and start on different weekdays, this number shifts constantly.
+Whether you are calculating salary schedules, estimating monthly project velocity, or planning team resource allocation, knowing the exact number of working days in a month is critical. Because calendar months vary in length and start on different weekdays, this number shifts constantly. If you need to scale this calculation to an entire calendar year, feel free to see our guide on [How to Calculate Working Days in a Year](/blog/how-to-calculate-working-days-in-a-year/).
 
 ## Short Answer
-On average, a standard calendar month contains **20 to 23 business working days** (excluding Saturdays and Sundays). The exact number depends on the total days in the month (28, 29, 30, or 31) and which day of the week the month begins on. You can use our **Weekdays Calculator** to find the exact workdays for any specific calendar month.
+On average, a standard calendar month contains **20 to 23 business working days** (excluding Saturdays and Sundays). The exact number depends on the total days in the month (28, 29, 30, or 31) and which day of the week the month begins on. You can use our **Weekdays Calculator** to find the exact workdays for any specific calendar month. If you are calculating shorter business day intervals, check out [How to Calculate Business Days Without Weekends](/blog/how-to-calculate-business-days-without-weekends/).
 
 ---
 

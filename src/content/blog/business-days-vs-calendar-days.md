@@ -9,10 +9,10 @@ relatedToolName: "Date Duration Calculator"
 
 # Business Days vs. Calendar Days: Key Differences Explained
 
-When drafting agreements, setting delivery goals, or establishing billing due dates, you will often encounter two distinct methods of tracking time: **Business Days** and **Calendar Days**. Misinterpreting these terms can lead to delayed deliverables, contract breaches, or penalty disputes.
+When drafting agreements, setting delivery goals, or establishing billing due dates, you will often encounter two distinct methods of tracking time: **Business Days** and **Calendar Days**. Misinterpreting these terms can lead to delayed deliverables, contract breaches, or penalty disputes. To learn the exact method for computing these working day periods, check out [How to Calculate Business Days Without Weekends](/blog/how-to-calculate-business-days-without-weekends/).
 
 ## Short Answer
-The difference is simple: **Calendar Days** represent every consecutive day on the calendar (including Saturdays, Sundays, and public holidays). **Business Days** refer strictly to official working days—usually Monday through Friday, excluding weekends and official bank holidays.
+The difference is simple: **Calendar Days** represent every consecutive day on the calendar (including Saturdays, Sundays, and public holidays). **Business Days** refer strictly to official working days—usually Monday through Friday, excluding weekends and official bank holidays. If you just need a standard calendar count, you can learn [How to Calculate Days Between Dates](/blog/how-to-calculate-days-between-dates/).
 
 ---
 

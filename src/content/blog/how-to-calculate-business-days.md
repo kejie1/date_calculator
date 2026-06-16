@@ -9,10 +9,10 @@ relatedToolName: "Business Days Calculator"
 
 # How to Calculate Business Days Between Two Dates
 
-Calculating business days (working days) is a common requirement in professional environments. Business operations, delivery schedules, payment terms, and project sprints usually depend on days where staff and banks are operating, which excludes weekend days.
+Calculating business days (working days) is a common requirement in professional environments. Business operations, delivery schedules, payment terms, and project sprints usually depend on days where staff and banks are operating, which excludes weekend days. For details on performing this calculation specifically without weekends, see our dedicated guide on [How to Calculate Business Days Without Weekends](/blog/how-to-calculate-business-days-without-weekends/).
 
 ## Short Answer
-To find the business days between two dates, you determine the total calendar days, calculate how many full weeks have passed to subtract 2 weekend days (Saturday and Sunday) for each week, and inspect any remaining partial week days to exclude any weekend boundaries. You can use our interactive **Business Days Calculator** to automate this instantly.
+To find the business days between two dates, you determine the total calendar days, calculate how many full weeks have passed to subtract 2 weekend days (Saturday and Sunday) for each week, and inspect any remaining partial week days to exclude any weekend boundaries. You can use our interactive **Business Days Calculator** to automate this instantly. For broader context on how working days are defined, refer to [Business Days vs. Calendar Days](/blog/business-days-vs-calendar-days/).
 
 ---
 
