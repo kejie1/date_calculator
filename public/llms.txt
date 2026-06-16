@@ -1,0 +1,48 @@
+# Date Calculator Tools
+
+> A fast, clean, and 100% browser-based suite of date calculators. Perfect for project managers, business developers, and personal planning. All calculations are executed locally in standard client-side JavaScript memory, guaranteeing absolute privacy.
+
+## Core Calculators
+
+The site hosts 6 major date arithmetic tools. All pages are mobile-first, responsive, and provide "Copy", "Clear", and "Load Example" buttons.
+
+*   **[Date Calculator](/date-calculator/)**: Calculates total calendar days (inclusive or exclusive), weeks, and start/end weekdays between two dates.
+*   **[Business Days Calculator](/business-days-calculator/)**: Computes standard working business days (Monday-Friday) and weekend distributions between two dates. Includes options to toggle start/end day inclusion.
+*   **[Date Duration Calculator](/date-duration-calculator/)**: Breaks down exact time intervals into total days, weeks, approximate months/years, and generates a natural human-readable sentence (e.g. "1 month, 2 weeks, and 3 days").
+*   **[Add Days to Date](/add-days-to-date/)**: Calculates future calendar target dates by adding a specified number of natural days or business weekdays.
+*   **[Subtract Days from Date](/subtract-days-from-date/)**: Subtracts standard calendar days or business weekdays from a date to determine historical dates.
+*   **[Weekdays Calculator](/weekdays-calculator/)**: Tallies the exact frequency/occurrences of individual weekdays (Mondays, Tuesdays, etc.) within any chosen date range.
+
+---
+
+## Technical & Execution Constraints
+
+*   **No Server Overhead**: All date calculations are executed in the local browser sandbox. There are no backend database servers or server-side API calls.
+*   **Timezone-Safe**: Uses the client's local timezone dates directly, preventing the 1-day calendar offsets caused by UTC midnight conversions.
+*   **No Holiday Database**: The current version excludes localized state, federal, or bank holidays. Standard working days calculations skip Saturdays and Sundays only.
+
+---
+
+## Detailed Date Guides & Blog Tutorials
+
+The platform contains 14 educational, SEO-optimized guides that link to the interactive tools above.
+
+### Day Counting & Differences
+*   **[How to Calculate Days Between Dates](/blog/how-to-calculate-days-between-dates/)**: Step-by-step paper instructions and logic for calculating standard calendar spans.
+*   **[How to Count Days Between Two Dates](/blog/how-to-count-days-between-two-dates/)**: Guides on how to use manually, through Excel (`DATEDIF` formula), or via online tools.
+*   **[Business Days vs. Calendar Days: Key Differences Explained](/blog/business-days-vs-calendar-days/)**: Essential commercial guidelines on how to interpret contract payment timelines (Net 10/30/60).
+
+### Working Days & Business Calculations
+*   **[How to Calculate Business Days Between Two Dates](/blog/how-to-calculate-business-days/)**: Counting business days manually by dividing weeks and factoring remaining weekday alignments.
+*   **[How to Calculate Business Days Without Weekends](/blog/how-to-calculate-business-days-without-weekends/)**: Detailed formulas and practical scenarios for computing weekdays while omitting Saturdays and Sundays.
+*   **[How Many Working Days Are in a Month?](/blog/how-many-working-days-in-a-month/)**: Explains month lengths (28, 29, 30, 31) and standard working day distribution (20-23 days).
+*   **[How Many Business Days Are in a Month?](/blog/how-many-business-days-are-in-a-month/)**: Detailed counts of workdays vs. weekends in typical business months, detailing standard pay slip divisors.
+*   **[How Many Business Days Are in a Year?](/blog/how-many-business-days-are-in-a-year/)**: Explains standard annual baseline working counts (260 vs. 261 working days) and standard 2,080 working hours.
+*   **[How to Calculate Working Days in a Year](/blog/how-to-calculate-working-days-in-a-year/)**: Complete breakdown of annual weekday cycles, leap year extra offsets, and standard business metrics.
+
+### Deadlines & Project Projections
+*   **[How to Add Days to a Date](/blog/how-to-add-days-to-a-date/)**: Mathematical rules for adding large pools of days (e.g. 45 days) across fluctuating month boundaries.
+*   **[How to Add 30, 60, or 90 Days to a Date](/blog/how-to-add-30-60-or-90-days-to-a-date/)**: Practical accounting scenarios for managing Net 30/60/90 invoice due dates.
+*   **[How to Subtract Days from a Date](/blog/how-to-subtract-days-from-a-date/)**: Logic for tracing dates backward into preceding months for retroactive auditing.
+*   **[How to Calculate 10 Business Days From Today](/blog/how-to-calculate-10-business-days-from-today/)**: The 14-day calendar addition shortcut for calculating standard two-week delivery and shipping windows.
+*   **[How to Calculate 30 Business Days From Today](/blog/how-to-calculate-30-business-days-from-today/)**: The 42-calendar-day shortcut rule for estimating six-week corporate deadlines.
