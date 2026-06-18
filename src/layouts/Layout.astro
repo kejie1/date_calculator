@@ -1,4 +1,6 @@
 ---
+import GitHubIcon from "../components/GitHubIcon.astro";
+
 interface Props {
     title: string;
     description: string;
@@ -189,8 +191,8 @@ const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
                             href="https://github.com/kejie1/date_calculator"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
-                            >GitHub</a
+                            class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors"
+                            ><GitHubIcon />GitHub</a
                         >
                     </nav>
 
@@ -299,8 +301,8 @@ const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
                         href="https://github.com/kejie1/date_calculator"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
-                        >GitHub</a
+                        class="flex items-center gap-2 rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-indigo-600"
+                        ><GitHubIcon />GitHub</a
                     >
                 </div>
             </div>
@@ -407,8 +409,8 @@ const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
                                     href="https://github.com/kejie1/date_calculator"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="hover:text-indigo-600 transition-colors"
-                                    >Source on GitHub</a
+                                    class="inline-flex items-center gap-1.5 hover:text-indigo-600 transition-colors"
+                                    ><GitHubIcon />Source on GitHub</a
                                 >
                             </li>
                             <li>
@@ -439,8 +441,8 @@ const finalCanonicalUrl = canonicalUrl || `${siteUrl}${Astro.url.pathname}`;
                             href="https://github.com/kejie1/date_calculator"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="hover:text-indigo-600 transition-colors"
-                            >Public GitHub Repo</a
+                            class="inline-flex items-center gap-1.5 hover:text-indigo-600 transition-colors"
+                            ><GitHubIcon />Public GitHub Repo</a
                         >.
                     </p>
                 </div>
