@@ -11,7 +11,7 @@ relatedToolName: "Business Days Calculator"
 Whether you are tracking delivery times, checking service-level agreements (SLAs), or calculating payroll periods, you often need to find the number of business days between two dates. In commercial terms, business days are standard working days that completely exclude Saturdays and Sundays.
 
 ## Short Answer
-To calculate business days without weekends, determine the total calendar days, divide by 7 to find the number of full weeks, and subtract 2 weekend days (Saturday and Sunday) for each full week. Finally, analyze the remaining partial week days against the start/end calendar weekdays to remove any additional weekend days. To do this instantly, use our secure [Business Days Calculator](/business-days-calculator/).
+To calculate business days without weekends, determine the total calendar days, divide by 7 to find the number of full weeks, and subtract 2 weekend days (Saturday and Sunday) for each full week. Finally, analyze the remaining partial week days against the start/end calendar weekdays to remove any additional weekend days. To do this instantly, use our secure [Business Days Calculator](/business-days-calculator/). If you are looking to project standard rolling business horizons, see [How to Calculate 10 Business Days From Today](/blog/how-to-calculate-10-business-days-from-today/) or [How to Calculate 30 Business Days From Today](/blog/how-to-calculate-30-business-days-from-today/).
 
 ---
 

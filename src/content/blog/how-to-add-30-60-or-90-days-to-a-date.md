@@ -11,7 +11,7 @@ relatedToolName: "Add Days to Date"
 Adding standard spans of 30, 60, or 90 days to a date is an essential task for managing billing schedules, setting project contract milestones, tracking invoice due dates (such as Net 30/60/90 terms), and scheduling regular software subscription renewals. 
 
 ## Short Answer
-To add 30, 60, or 90 days to a starting date, increment the starting day of the month by the required count. If the sum exceeds the length of the current month, subtract that month's total days (e.g. 30 or 31), increment the calendar month, and repeat until the remainder fits within the destination month. You can also do this instantly with our [Add Days to Date](/add-days-to-date/) calculator.
+To add 30, 60, or 90 days to a starting date, increment the starting day of the month by the required count. If the sum exceeds the length of the current month, subtract that month's total days (e.g. 30 or 31), increment the calendar month, and repeat until the remainder fits within the destination month. You can also do this instantly with our [Add Days to Date](/add-days-to-date/) calculator. For projecting common shorter business windows, see [How to Calculate 30 Business Days From Today](/blog/how-to-calculate-30-business-days-from-today/).
 
 ---
 
