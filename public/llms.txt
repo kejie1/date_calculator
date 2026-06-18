@@ -2,6 +2,9 @@
 
 > A fast, clean, and 100% browser-based suite of date calculators. Perfect for project managers, business developers, and personal planning. All calculations are executed locally in standard client-side JavaScript memory, guaranteeing absolute privacy.
 
+Website: https://datecalculatortools.com/
+GitHub: https://github.com/kejie1/date_calculator
+
 ## Core Calculators
 
 The site hosts 6 major date arithmetic tools. All pages are mobile-first, responsive, and provide "Copy", "Clear", and "Load Example" buttons.
