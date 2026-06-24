@@ -3,8 +3,8 @@ import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout
-    title="Business Days Calculator - Count Working Days"
-    description="Calculate the exact number of business days (working days) and weekends between two dates. Customize calculations by including or excluding start/end dates."
+    title="Business Days Calculator | Calculate Working Days Between Dates"
+    description="Calculate business days between two dates, excluding weekends. See working days, weekend days, and calendar days with start and end date options."
 >
     <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <!-- Breadcrumb -->
@@ -50,8 +50,8 @@ import Layout from "../../layouts/Layout.astro";
                 Business Days Calculator
             </h1>
             <p class="mt-2 text-base text-slate-500">
-                Calculate standard business days (Monday-Friday) and weekend
-                days between any two dates.
+                Calculate business days between two dates, excluding Saturday
+                and Sunday, with optional start and end date inclusion.
             </p>
         </div>
 
@@ -168,7 +168,7 @@ import Layout from "../../layouts/Layout.astro";
                             type="submit"
                             class="flex-1 min-w-[120px] rounded-xl bg-indigo-600 px-5 py-3 text-center text-sm font-bold text-white shadow-xs hover:bg-indigo-500 active:bg-indigo-700 transition-colors"
                         >
-                            Calculate
+                            Calculate Business Days
                         </button>
                         <button
                             type="button"
@@ -281,10 +281,10 @@ import Layout from "../../layouts/Layout.astro";
                     class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm"
                 >
                     <h2 class="text-lg font-bold text-slate-900 mb-4">
-                        How Business Days are Counted
+                        How the Business Days Calculator Works
                     </h2>
                     <p class="text-sm text-slate-600 leading-relaxed mb-3">
-                        A business day is defined as any calendar day from <strong
+                        This business days calculator counts any calendar day from <strong
                             >Monday through Friday</strong
                         >. Saturdays and Sundays are fully excluded.
                     </p>
@@ -394,14 +394,14 @@ import Layout from "../../layouts/Layout.astro";
             class="mt-16 bg-slate-50 border border-slate-200/80 rounded-2xl p-8"
         >
             <h2 class="text-lg font-bold text-slate-900 mb-4">
-                Related Calculators
+                Related Date Calculators
             </h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <a
                     href="/date-calculator/"
                     class="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm font-semibold text-slate-700 hover:text-indigo-600 hover:border-indigo-100 transition-all shadow-xs"
                 >
-                    <span>Date Calculator</span>
+                    <span>Days Between Dates Calculator</span>
                     <span>&rarr;</span>
                 </a>
                 <a

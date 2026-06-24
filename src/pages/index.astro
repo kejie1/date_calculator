@@ -3,23 +3,23 @@ import Layout from "../layouts/Layout.astro";
 
 const tools = [
     {
-        title: "Date Calculator",
+        title: "Days Between Dates Calculator",
         description:
-            "Calculate the exact number of days, weeks, and remaining days between two dates.",
+            "Calculate days between two dates with calendar-day, inclusive-day, and week breakdowns.",
         href: "/date-calculator/",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" /></svg>`,
     },
     {
         title: "Business Days Calculator",
         description:
-            "Find the number of working days between two dates, excluding weekends.",
+            "Calculate business days between two dates, excluding weekends and showing calendar-day totals.",
         href: "/business-days-calculator/",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 .621-.504 1.125-1.125 1.125H4.875A1.125 1.125 0 0 1 3.75 18.4V14.15m16.5 0c0-1.03-.687-1.916-1.666-2.185a48.507 48.507 0 0 0-13.168 0c-.979.269-1.666 1.156-1.666 2.185m16.5 0a2.25 2.25 0 0 1-2.247 2.25H4.875c-1.241 0-2.247-1.01-2.247-2.25m13.5-3V5.625c0-.621-.504-1.125-1.125-1.125H9.75c-.621 0-1.125.504-1.125 1.125V11.25m3.75-3h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" /></svg>`,
     },
     {
         title: "Date Duration Calculator",
         description:
-            "Get detailed time duration break downs including years, months, weeks, and days.",
+            "Use a date duration calculator for years, months, weeks, and total days between dates.",
         href: "/date-duration-calculator/",
         icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`,
     },
@@ -91,8 +91,8 @@ const faqs = [
 ---
 
 <Layout
-    title="Date Calculator Tools - Free Online Date Calculators"
-    description="Calculate days between dates, business days, weekdays, and add or subtract days online with free browser-based date tools."
+    title="Days Between Dates Calculator | Date Calculator Tools"
+    description="Calculate days between two dates, count business days, use a date duration calculator, or add and subtract days with free browser-based tools."
 >
     <!-- Hero Section -->
     <section class="relative overflow-hidden py-20 bg-slate-900 text-white">
@@ -108,14 +108,14 @@ const faqs = [
             <h1
                 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-200 via-indigo-100 to-white"
             >
-                Date Calculator Tools
+                Days Between Dates Calculator
             </h1>
             <p
                 class="mx-auto mt-6 max-w-2xl text-lg sm:text-xl text-slate-300 leading-relaxed"
             >
-                A fast, clear, and browser-based date calculator suite. Count
-                days between dates, add or subtract days, and calculate weekdays
-                or business days in seconds.
+                Calculate days between two dates, count business days, and
+                check date duration in years, months, weeks, or total calendar
+                days. All tools run instantly in your browser.
             </p>
 
             <div
@@ -125,13 +125,13 @@ const faqs = [
                     href="/date-calculator/"
                     class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-indigo-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg hover:bg-indigo-500 active:bg-indigo-700 transition-all hover:-translate-y-0.5"
                 >
-                    Open Date Calculator
+                    Calculate Days Between Dates
                 </a>
                 <a
                     href="/business-days-calculator/"
                     class="w-full sm:w-auto inline-flex items-center justify-center rounded-xl bg-slate-800 border border-slate-700 px-6 py-3.5 text-base font-semibold text-slate-200 hover:bg-slate-700 hover:text-white transition-all hover:-translate-y-0.5"
                 >
-                    Calculate Business Days
+                    Business Days Calculator
                 </a>
             </div>
         </div>
